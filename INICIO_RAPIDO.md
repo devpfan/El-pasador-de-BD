@@ -1,6 +1,5 @@
 """
-Guía de Inicio Rápido - Pasador de Esquemas de BD
-================================================
+# Guía de Inicio Rápido - Pasador de Esquemas de BD
 
 ¡Felicidades! Has instalado exitosamente el Pasador de Esquemas de BD.
 
@@ -59,7 +58,7 @@ Guía de Inicio Rápido - Pasador de Esquemas de BD
 - **Resumen**: Estadísticas generales del esquema
 - **Dependencias**: Visualización del árbol de dependencias entre tablas
 - **Orden**: Secuencia calculada para transferencia respetando FK
-- **Problemas**: Issues detectados como dependencias circulares
+- **Análisis**: Dependencias y estructura del esquema
 
 ### Transferencia de Datos
 - **Selección de Tablas**: Elige qué tablas transferir
@@ -71,7 +70,7 @@ Guía de Inicio Rápido - Pasador de Esquemas de BD
 - **Lotes**: Configurar tamaño de lotes para mejor rendimiento
 - **Paralelo**: Transferir múltiples tablas independientes simultáneamente
 - **Constraints**: Deshabilitar temporalmente para resolver ciclos
-- **Errores**: Continuar transferencia aunque algunas tablas fallen
+- **Continuidad**: Opciones para transferencia robusta
 
 ## 🔧 Casos de Uso Comunes
 
@@ -87,49 +86,22 @@ Guía de Inicio Rápido - Pasador de Esquemas de BD
 3. Usa "Seleccionar Tablas" para elegir subconjunto
 4. Transfiere solo las tablas seleccionadas
 
-### Manejo de Problemas
-- **Dependencias Circulares**: Usa opciones avanzadas para resolver
-- **Tablas Grandes**: Ajusta tamaño de lotes
-- **Errores de Red**: Habilita "Continuar en caso de error"
+### Optimización
+- **Dependencias Circulares**: Usa opciones avanzadas disponibles
+- **Tablas Grandes**: Ajusta tamaño de lotes según rendimiento
+- **Continuidad**: Opciones para manejar interrupciones
 
-## 🐛 Solución de Problemas
+## � Registro de Actividad
 
-### "No se puede conectar"
-- Verifica credenciales y permisos
-- Confirma que el servidor esté ejecutándose
-- Revisa configuración de firewall
-
-### "Error de dependencias"
-- Revisa la pestaña "Problemas"
-- Considera usar "Deshabilitar constraints"
-- Verifica que todas las tablas referenciadas estén incluidas
-
-### "Rendimiento lento"
-- Reduce el tamaño de lotes
-- Deshabilita la verificación de datos para pruebas
-- Usa transferencia paralela si no hay dependencias críticas
-
-## 📝 Archivos de Log
-
-Los logs se guardan automáticamente en:
+Los logs de la aplicación se guardan automáticamente en:
 ```
 logs/pasador_db.log
 ```
 
-Incluyen información detallada sobre:
-- Conexiones de BD
-- Análisis de esquemas  
-- Progreso de transferencia
-- Errores y warnings
-
-## 🆘 Soporte
-
-Si encuentras problemas:
-
-1. Revisa los logs en `logs/pasador_db.log`
-2. Verifica que todas las dependencias estén instaladas
-3. Prueba con las bases de datos de ejemplo primero
-4. Asegúrate de tener permisos adecuados en ambas BD
+Incluyen información sobre:
+- Conexiones realizadas
+- Análisis de esquemas
+- Progreso de transferencias
+- Estadísticas de operaciones
 
 ¡Disfruta transfiriendo esquemas de manera inteligente! 🎉
-"""

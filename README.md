@@ -138,33 +138,26 @@ Puedes usar variables de entorno para configuraciones sensibles:
 - `DB_PASSWORD_SOURCE`: Contraseña BD origen
 - `DB_PASSWORD_TARGET`: Contraseña BD destino
 
-## 🐛 Solución de Problemas
+## � Formatos de Exportación
 
-### Error: "tkinter no está disponible"
-En sistemas Linux, instala el paquete tkinter:
-```bash
-sudo apt-get install python3-tk  # Ubuntu/Debian
-sudo yum install tkinter         # CentOS/RHEL
-```
+### SQL DDL
+Exporta el esquema completo en formato SQL estándar:
+- Sentencias CREATE TABLE con todas las columnas y tipos
+- Definición de claves primarias y foráneas
+- Índices y restricciones
+- Vistas y secuencias
 
-### Error de Conexión a BD
-1. Verifica que el servidor de BD esté ejecutándose
-2. Confirma credenciales y permisos de usuario
-3. Revisa configuración de firewall/red
-4. Para PostgreSQL, verifica `pg_hba.conf`
-5. Para MySQL, verifica que el usuario tenga permisos remotos
+### JSON Estructurado
+Formato legible para análisis programático:
+- Metadata completa de todas las tablas
+- Información de dependencias
+- Estadísticas del esquema
 
-### Problemas de Rendimiento
-1. Ajusta `batch_size` según tu hardware
-2. Usa `max_workers` apropiado para tu CPU
-3. Considera deshabilitar constraints temporalmente
-4. Para tablas muy grandes, usa transferencia paralela
-
-### Dependencias Circulares
-1. Revisa la pestaña "Problemas" para ver ciclos detectados
-2. Identifica FK que pueden ser nullable
-3. Considera reestructurar el esquema si es posible
-4. Usa la opción "Deshabilitar constraints" como último recurso
+### HTML Interactivo
+Documentación visual del esquema:
+- Tablas con formato profesional
+- Enlaces entre dependencias
+- Estadísticas visuales
 
 ## 📊 Casos de Uso Típicos
 
@@ -192,21 +185,6 @@ Esquema Específico → Archivo SQLite
 - Fácil de restaurar
 ```
 
-## 🤝 Contribuir
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
 ## 📄 Licencia
 
 Este proyecto está bajo la Licencia MIT - ver archivo [LICENSE](LICENSE) para detalles.
-
-## 🙏 Agradecimientos
-
-- SQLAlchemy por la abstracción de bases de datos
-- Pandas por el manejo eficiente de datos
-- Tkinter por la interfaz gráfica multiplataforma
-- Comunidad Python por las excelentes librerías

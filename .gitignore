@@ -71,6 +71,15 @@ Thumbs.db
 *_backup.py
 *_old.py
 
+# Archivos de desarrollo y pruebas
+test_*.py
+*_test.py
+test/
+tests/
+*.md.bak
+RESUMEN_*.md
+EXTENSION_*.md
+
 # Archivos temporales de base de datos
 *.db
 *.sqlite

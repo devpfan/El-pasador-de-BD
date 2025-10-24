@@ -24,63 +24,46 @@
 
 ### Conexiones Configuradas
 
-#### 🔹 Origen - Conexión Múltiple DEV
-- **Host**: 10.1.20.42
-- **Puerto**: 1521  
-- **Service Name**: conexionmul
-- **Usuario**: SICOFCONFIG
-- **Password**: SICOFCONFIG
-- **Esquema**: SICOFCONFIG
-
-#### 🔹 Destino - Bello 110  
-- **Host**: 10.1.140.101
-- **Puerto**: 1521
-- **Service Name**: db110
-- **Usuario**: FISCA
-- **Password**: fisca
-- **Esquema**: SICOFCONFIG
+#### Ejemplo de Configuración Oracle
+- **Host**: tu_servidor_oracle
+- **Puerto**: 1521 (puerto estándar)  
+- **Service Name**: nombre_servicio
+- **Usuario**: tu_usuario
+- **Password**: tu_password
+- **Esquema**: esquema_origen
 
 ## 🚀 Uso Rápido
 
-### Método 1: Cargar Configuración Automática
-1. Abrir aplicación: `python app.py`
-2. Menú → Archivo → "Cargar Config Oracle"
-3. Las conexiones se cargarán automáticamente
-4. Clic "Conectar" en ambos paneles
-5. Seleccionar esquema "SICOFCONFIG" en origen
+### Configuración de Conexión
+1. **Abrir aplicación**: `python app.py`
 
-### Método 2: Configuración Manual
-1. **Panel Origen**:
+2. **Panel Origen**:
    - Tipo: Oracle
-   - Host: 10.1.20.42
+   - Host: tu_servidor_origen
    - Puerto: 1521
-   - Database: conexionmul
-   - Usuario: SICOFCONFIG
-   - Password: SICOFCONFIG
+   - Service Name: tu_servicio
+   - Usuario: tu_usuario
+   - Password: tu_password
 
-2. **Panel Destino**:
-   - Tipo: Oracle  
-   - Host: 10.1.140.101
-   - Puerto: 1521
-   - Database: db110
-   - Usuario: FISCA
-   - Password: fisca
+3. **Panel Destino**:
+   - Tipo: Oracle (u otro tipo de BD)
+   - Configurar según tu BD destino
 
 ## 📋 Flujo de Transferencia
 
 1. **Conectar a ambas BD** y verificar que aparezcan los esquemas
-2. **Seleccionar esquema SICOFCONFIG** en origen
+2. **Seleccionar esquema origen** en la lista desplegable
 3. **Clic "Analizar Esquema"** - El sistema:
    - Detectará todas las tablas del esquema
    - Analizará dependencias entre tablas
    - Calculará orden correcto de inserción
-   - Identificará posibles problemas
+   - Identificará la estructura y dependencias
 
 4. **Revisar análisis**:
    - **Resumen**: Estadísticas generales
    - **Dependencias**: Árbol visual de relaciones
    - **Orden**: Secuencia calculada para transferencia
-   - **Problemas**: Issues como dependencias circulares
+   - **Análisis**: Estructura y dependencias del esquema
 
 5. **Opcional: Seleccionar tablas específicas**
    - Clic "Seleccionar Tablas" si no quieres transferir todo
@@ -107,61 +90,21 @@
 - ✅ Verificar datos al final
 - 📊 Tamaño de lote: 1000 (ajustar según rendimiento)
 
-## 🐛 Solución de Problemas Oracle
+## � Funcionalidades Oracle
 
-### Error: "Oracle client not found"
-```bash
-# Instalar cliente Oracle
-sudo apt install oracle-instantclient-basic
+### Objetos Soportados
+- **Tablas**: Estructura completa con PKs y FKs
+- **Vistas**: Definiciones y dependencias
+- **Secuencias**: Parámetros completos (START, INCREMENT, etc.)
+- **Procedimientos/Funciones**: Código PL/SQL completo
+- **Triggers**: Tipos BEFORE/AFTER/INSTEAD OF
+- **Índices**: Índices personalizados (excluye automáticos)
 
-# O descargar manualmente de Oracle y configurar:
-export ORACLE_HOME=/path/to/oracle/client
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib
-```
-
-### Error: "TNS: could not resolve service name"
-- Verificar que el service name esté correcto
-- Probar conectividad: `telnet 10.1.20.42 1521`
-- Verificar que el servicio Oracle esté ejecutándose
-
-### Error: "ORA-12541: TNS:no listener"
-- El puerto 1521 no está abierto o el listener no está activo
-- Contactar al administrador de BD
-- Verificar firewall entre servidores
-
-### Error: "ORA-01017: invalid username/password"
-- Verificar credenciales
-- El usuario puede estar bloqueado
-- Verificar que el usuario tenga permisos de conexión
-
-### Performance Lento
-- Reducir batch size a 500 o menos
-- Verificar índices en tablas grandes
-- Usar transferencia paralela solo para tablas independientes
-- Considerar horarios de menor carga
-
-### Dependencias Circulares
-- Revisar pestaña "Problemas" en el análisis
-- Usar "Deshabilitar constraints temporalmente"
-- Identificar FK que pueden ser NULL e insertar en dos fases
-
-## 📊 Monitoreo
-
-### Logs Detallados
-Los logs se guardan en: `logs/pasador_db.log`
-
-Incluyen:
-- Conexiones exitosas/fallidas
-- Progreso tabla por tabla  
-- Errores específicos de Oracle
-- Tiempos de transferencia
-- Validación de integridad
-
-### Progreso en Tiempo Real
-- Tabla actual siendo procesada
-- Filas transferidas vs total
-- Tiempo estimado restante
-- Errores y warnings
+### Transferencia Optimizada
+- Resolución automática de dependencias
+- Orden inteligente de creación de objetos
+- Manejo de dependencias circulares
+- Adaptación de sintaxis entre diferentes BD
 
 ## 💡 Tips para Oracle
 
