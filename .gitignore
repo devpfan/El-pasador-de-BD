@@ -1,0 +1,96 @@
+# Archivos de configuración sensibles
+config/
+*.config
+*.cfg
+credentials.json
+database.env
+
+# Archivos de conexión a BD
+connection_configs/
+db_connections.json
+*.connection
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Archivos de exportación temporales
+export_*.sql
+export_*.json
+export_*.html
+export_*.csv
+temp_export/
+
+# Archivos Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entorno virtual
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backups
+*.bak
+*_backup.py
+*_old.py
+
+# Archivos temporales de base de datos
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# Archivos de configuración específicos del usuario
+user_config.json
+my_connections.json
+local_settings.py
+
+# Certificados y claves
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Archivos de datos sensibles
+data/
+sample_data/
+test_data/
+production_data/

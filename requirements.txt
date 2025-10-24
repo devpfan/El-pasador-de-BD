@@ -1,0 +1,9 @@
+tkinter
+psycopg2-binary>=2.9.7
+mysql-connector-python>=8.1.0
+pymssql>=2.2.8
+cx-Oracle>=8.3.0
+sqlalchemy>=2.0.21
+pandas>=2.1.0
+treelib>=1.7.0
+pillow>=10.0.0
