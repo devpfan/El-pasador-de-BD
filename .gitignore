@@ -16,7 +16,9 @@ logs/
 *.log.*
 
 # Archivos de exportación temporales
+export*.sql
 export_*.sql
+export*.json
 export_*.json
 export_*.html
 export_*.csv
